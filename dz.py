@@ -9,14 +9,14 @@ def base():
 @app.route('/hello/', methods=['GET', 'POST'])
 def hello():
     if request.method == 'POST':
-        name = request.form.get('login')
-        email = request.form.get('email')
-        if name =='admin' & email == 'urmaster@gmail.com':
-            return "Вы вошли как admin"
+        name = request.form.get('Login')
+        email = request.form.get('Email')
+        if name =='admin' and email == 'urmaster@gmail.com':
+            return render_template('hello.html')
         else:
-            return "Нет."
+            return render_template('hell.html')
 
-    return render_template('hello.html')
+    # return render_template('hello.html')
 
 if __name__=="__main__":
     app.run()

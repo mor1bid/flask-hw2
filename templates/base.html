@@ -5,15 +5,17 @@
     <title>Document</title>
 </head>
 <body>
+    {% block attention %}
+    {% endblock %}
+
     {% block title %}
-    <form>
-        <!-- <a>Логин</a> -->
+    <form action="/hello" method="post">
         <input type="text" name="Login" placeholder="Логин">
-        <!-- <a>Эл. почта</a> -->
         <input type="email" name="Email" placeholder="Эл. почта">
-        <button><a href="{{url_for ('hello', name=name, email=email)}}">Отправить</a></button>
+        <input type="submit" value="Отправить!">
     </form>
     {% endblock %}
+
     {% block content %}
     <h3>Войдите в систему, чтобы видеть скрытый текст.</h3>
     {% endblock %}
