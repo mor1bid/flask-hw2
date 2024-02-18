@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    {% block title %}
+    <form>
+        <!-- <a>Логин</a> -->
+        <input type="text" name="Login" placeholder="Логин">
+        <!-- <a>Эл. почта</a> -->
+        <input type="email" name="Email" placeholder="Эл. почта">
+        <button><a href="{{url_for ('hello', name=name, email=email)}}">Отправить</a></button>
+    </form>
+    {% endblock %}
+    {% block content %}
+    <h3>Войдите в систему, чтобы видеть скрытый текст.</h3>
+    {% endblock %}
+</body>
+</html>
