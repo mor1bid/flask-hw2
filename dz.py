@@ -13,27 +13,20 @@ def hello():
         name = request.form.get('Login')
         email = request.form.get('Email')
         context = {'name': name}
-        response = make_response("Cookie installed")
         if name =='admin' and email == 'urmaster@gmail.com':
+            response = make_response(render_template('hello.html', **context))
             response.set_cookie('email', email)
             response.set_cookie('name', name)
-            # session['name'] = request.form.get('name')
-            # return response
-            return render_template('hello.html', **context)
+            return response
         else:
-            response.set_cookie('email', email)
-            response.set_cookie('name', name)
             return render_template('hell.html')
-    return response
 
 @app.route('/logout/')
 def logout():
-    # session.pop('name', None)
-    response = make_response("Cookie deleted")
+    response = make_response(redirect(url_for('base')))
     response.delete_cookie('name')
     response.delete_cookie('email')
     return response
-    return redirect(url_for('base'))
 
 if __name__=="__main__":
     app.run()
